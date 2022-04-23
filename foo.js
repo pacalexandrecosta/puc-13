@@ -1,8 +1,13 @@
 const foo = 'foo';
 
-var x = 2;
+const x = 2;
 console.log(foo);
 
+/**
+ *
+ */
 function show() {
-
+  console.log(x);
 }
+
+show();
