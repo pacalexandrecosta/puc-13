@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: puc-13    
+
 jobs:
   lint:
     name: Análise Estática
@@ -16,6 +20,6 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-          cache-dependency-path: analisador-estatico/package-lock.json
+          cache-dependency-path: puc-13/package-lock.json
       - run: npm ci
       - run: npm run lint
