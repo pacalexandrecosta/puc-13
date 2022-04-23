@@ -1,0 +1,25 @@
+name: API User CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: puc-13    
+
+jobs:
+  lint:
+    name: Análise Estática
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - run: npm run lint
